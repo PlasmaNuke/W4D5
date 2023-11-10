@@ -51,10 +51,10 @@ end
 
 describe "#my_transpose" do
     it "should transpose multiple arrays" do
-        expect(
+        expect(my_transpose(
             [[1, 2, 3],
             [4, 5, 6],
-            [7, 8, 9]]
+            [7, 8, 9]])
         ).to eq(
             [[1, 4, 7],
             [2, 5, 8],

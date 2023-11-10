@@ -24,3 +24,11 @@ class Array
         indices
     end
 end
+
+def my_transpose(arr)
+  result = []
+  (0...arr.size).each do |i|
+   result << arr.map { |subs| subs[i] }
+  end
+  result
+end
