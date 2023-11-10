@@ -21,11 +21,31 @@ describe "#my_uniq" do
 
     context "when passed multiple data types" do
         it "should not raise an error" do
-            expect { my_uniq([1,2,[1,2,3]]) }.to_not receive_error
+            expect { my_uniq([1,2,[1,2,3]]) }.to_not raise_error
         end
         it "should compare data types correctly" do
-            expect { my_uniq([1,2,[1,2,3], [1,2,3], "hello", "hello", 
-            {"goodbye": 1}, {"goodbye": 1}])}.to eq([1,2,[1,2,3], "hello",  {"goodbye": 1}])
+            expect(my_uniq([1,2,[1,2,3], [1,2,3], "hello", "hello"])).to eq([1,2,[1,2,3], "hello"])
         end
     end
+end
+
+describe "Array#two_sum" do
+    context "when passed an array were no two elements sum to zero" do
+        it "should return an empty array" do
+            expect([2,2,4,5].two_sum).to eq([])
+        end
+    end
+
+    context "when passed an array with elements that are not numbers" do
+        it "should raise an error" do
+            expect { ["hi", "no"].two_sum }.to raise_error("Invalid arguments")
+        end
+    end
+
+    context "when at least one pair of elements sum to zero" do
+        it "should an array of indices of each pair" do
+            expect([-2, 2].two_sum).to eq([[0, 1]])
+        end
+    end
+    
 end
